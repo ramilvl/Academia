@@ -38,7 +38,7 @@
     width: 100px;
     height: 100px;
     position: absolute;
-    top: 87%;
+    top: 83%;
     left: 43.5%;
     z-index: -1;
 }
@@ -48,7 +48,7 @@
     align-items: center;
     justify-content: start;
     flex-direction: column;
-    gap: 80px;
+    gap: 60px;
     padding-top: 140px;
 }
 
@@ -85,7 +85,15 @@ input::placeholder{
 
 input:focus{
     outline: none;
+    animation: colorChange 3s infinite;
 }
+
+@keyframes colorChange {
+    0% { color: #ff0000; }
+    50% { color: #00ff00; }
+    100% { color: #0000ff; }
+}
+
 
 input:focus::placeholder{
     color: transparent;
@@ -97,6 +105,15 @@ input:focus::placeholder{
     padding: 17px 50px;
     background-color: #F95B0E;
     border: none;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover{
+    background-color:black;
+    background-color: #333;
+    color: #fff;
+    border-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -115,8 +132,6 @@ input:focus::placeholder{
     row-gap: 60px;
 }
 
-
-
 div.exitSection{
     justify-content: end;
 }
@@ -128,3 +143,23 @@ div.mainPart{
 .txt4:hover{
     text-decoration: underline;
 }
+
+@keyframes write {
+    from {
+      width: 0;
+      opacity: 0;
+    }
+    to {
+      width: 23%;
+      opacity: 1;
+    }
+}
+
+  #animated-text {
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 1px solid #fff;
+    font-family: 'Arial', sans-serif;
+    animation: write 3s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+
+  }
