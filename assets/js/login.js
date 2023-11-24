@@ -5,11 +5,11 @@ passwordImageElement.addEventListener("click",passwordTypeChange);
 
 function passwordTypeChange(){
     if(passwordImageElement.src.endsWith("/assets/img/hidden.svg")){
-        passwordImageElement.src = "./assets/img/openEye.svg";
+        passwordImageElement.src = "../assets/img/openEye.svg";
         passwordElement.type = "text";
     }
     else {
-        passwordImageElement.src = "./assets/img/hidden.svg";
+        passwordImageElement.src = "../assets/img/hidden.svg";
         passwordElement.type = "password";
     }
 }

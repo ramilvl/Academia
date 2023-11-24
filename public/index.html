@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="leftPart">
+            <img src="../assets/img/loginLeftImg.svg" alt="">
+        </div>
+
+        <div class="rightPart bg-color-F6 display-flex">
+            <span class="font-poppins color-primary text-size-35px font-600" id="animated-text">Welcome</span>
+
+            <div class="inputs display-flex">
+                <div class="input-box color-c4 border-radius-8px">
+                    <img class="cursor" src="../assets/img/user.svg" alt="">
+                    <input class="ml-13 text-size-20px" placeholder="Username" required></input>
+                </div>
+
+                <div class="input-box color-c4 border-radius-8px">
+                    <img class="cursor" src="../assets/img/lock.svg" alt="">
+                    <input type="password" id="password" name="password" class="ml-13 text-size-20px" placeholder="Password" required></input>
+                    <img id="passwordType"  class="cursor" src="../assets/img/hidden.svg" alt="">
+                </div>
+
+                <div class="forgot-password-container cursor">
+                    <a><span onclick="changeView()" id="forgotPasswordText" class="font-poppins ml-220px color-AD text-size-15px">Forgot Password?</span></a>
+                </div>
+            </div>
+
+            
+                <a href="../public/main-page.html">
+                    <button class="btn cursor border-radius-8px">
+                        <span class="color-white font-poppins text-size-15px">Sign in</span>
+                    </button>
+                </a>
+
+        </div>
+
+        <div class="box"></div>
+
+        <div class="box2 bg-color-F6"></div>
+    </div>
+
+    <div class="forgetPasswordFrame " id="forgotPassword">
+        <div class="exitSection display-flex flex-row">
+            <img class="cursor pr-35px pt-20px" onclick="changeView()" src="../assets/img/x.svg">
+        </div>
+        <div class="mainPart pr-35px display-flex align-justify-center flex-column">
+            <span class="font-poppins color-black text-size-36px font-400">Forgot Password?</span>
+            <span class="color-black font-poppins text-size-20px font-300">This feature will be implemented in the future.</span>
+            <span class="color-black font-poppins text-size-16px font-300 pt-100px">Back to <a onclick="changeView()"><span class=" txt4 cursor font-poppins text-size-16px font-300 color-13">Log in</span></a></span>
+        </div>
+    </div>
+
+    <script src="../assets/js/login.js"></script>
+</body>
+</html>
