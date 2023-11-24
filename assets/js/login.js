@@ -22,6 +22,6 @@ function changeView() {
 
     } else {
         forgotPasswordFrame.style.display = "flex";
-        centerDiv[0].style.filter = "blur(5px)";
+        centerDiv[0].style.filter = "blur(3px)";
     }
 }

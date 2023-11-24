@@ -26,8 +26,8 @@
 }
 
 .box{
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 150px;
     background-color: #5C2482;
     position: absolute;
     left: 50%;
@@ -35,10 +35,11 @@
 }
 
 .box2{
-    width: 100px;
+    width: 200px;
     height: 100px;
     position: absolute;
-    top: 83%;
+    background-color: #F6F6F6;
+    top: 83.8%;
     left: 43.5%;
     z-index: -1;
 }
@@ -87,13 +88,6 @@ input:focus{
     animation: colorChange 3s infinite;
 }
 
-@keyframes colorChange {
-    0% { color: #ff0000; }
-    50% { color: #00ff00; }
-    100% { color: #0000ff; }
-}
-
-
 input:focus::placeholder{
     color: transparent;
 }
@@ -108,16 +102,15 @@ input:focus::placeholder{
 }
 
 .btn:hover{
-    background-color:black;
-    background-color: #333;
+    background: linear-gradient(135deg, #9CC4FF 0%, #B4A8FF 100%); 
     color: #fff;
     border-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .forgetPasswordFrame{
-    width: 40%;
-    height: 50%;
+    width: 50%;
+    height: 60%;
     background: #F6F6F6;
     display: none;
     flex-direction: column;
