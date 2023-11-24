@@ -1,116 +1,180 @@
-.container{
+body{
+    background-color: #5C2482;
     width: 100%;
     height: 100vh;
+    margin: 0;
+}
+div.container{
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
 }
-
-.leftPart{
-    height: 100vh;
+div.leftSideBody{
     width: 50%;
-    background-color: #5C2482;
-    border-radius:  0px 0px 100px 0px;
+    height: 100%;
     display: flex;
+    flex-direction: column;
+    background: #F6F6F6;;
+}
+div.leftSideMainPart{
+    height: 100%;
+    width: 100%;
+    border-radius: 0 0 11% 0;
+    background: #5C2482;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-
-.leftPart img{
-    width: 410px;
-}
-
-.rightPart {
-    height: 100vh;
+img#logo{
+    max-width: 59%;
+    max-height: 59%;
+} 
+div.rightSideBody{
     width: 50%;
-    border-radius: 100px 0px 0px 0px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #5C2482;
+}
+div.rightSideMainPart{
+    border-radius: 11% 0 0 0;
+    background: #F6F6F6;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+div.center{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    row-gap: 3.6vw;
+}
+div.header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+span#loginTxt{
+    color: #5C2482;
+    font-family: Poppins;
+    font-size: 2.65vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+div.inputForm{
+    display: flex;
+    flex-direction: column;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.25vw;
+    align-items: center;
+}
+div.inputFrame{
+    width: 50%;
+    height: 3.25vw;
+    border-radius: 0.6vw;
+    border: 0.05vw solid #C4C4C4;
+    display: flex;
+    flex-direction: row;
+    padding-left: 1vw;
+    column-gap: 0.5vw;
 }
 
-.box{
-    width: 200px;
-    height: 150px;
-    background-color: #5C2482;
-    position: absolute;
-    left: 50%;
-    z-index: -1;
+div.logoContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 5.7%;
 }
 
-.box2{
-    width: 200px;
-    height: 100px;
-    position: absolute;
+img.logo{
+    width: 1.5vw;
+}
+
+input#username{
+    width: 80%;
+    border: 0;
     background-color: #F6F6F6;
-    top: 83.8%;
-    left: 43.5%;
-    z-index: -1;
-}
-
-.rightPart{
-    align-items: center;
-    justify-content: start;
-    flex-direction: column;
-    gap: 60px;
-    padding-top: 140px;
-}
-
-.inputs{
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 28px;
-}
-
-.input-box{
-    width: 400px;
-    height: 50px;
-    padding: 17px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    border: 1px solid #C4C4C4;
-}
-
-input{
-    width: 350px;
-    height: 50px;
-    border: none;
-    background-color: transparent;
-}
-
-input::placeholder{
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-family: Poppins;
+    font-size: 1.05vw;
+    font-style: normal;
     font-weight: 400;
+    line-height: normal;
+    outline: 0;
+}
+input#username::placeholder{
     color: #C4C4C4;
 }
-
-input:focus{
-    outline: none;
-    animation: colorChange 3s infinite;
+input#password{
+    width: 80%;
+    border: 0;
+    outline: 0;
+    background-color: #F6F6F6;
+    font-family: Poppins;
+    font-size: 1.05vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+input#password::placeholder{
+    color: #C4C4C4;
+}
+div.forgetPassword{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 52%;
+}
+span#forgotPasswordText{
+    color: #ADADAD;
+    font-family: Poppins;
+    font-size: 0.8vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 0.7vw;
+}
+span#forgotPasswordText:hover{
+    color: black;
+    text-decoration: underline;
+}
+div.submitFrame{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    padding-top: 3vw;
 }
 
-input:focus::placeholder{
-    color: transparent;
-}
 
-.btn{
-    width: 250px;
-    height: 57px;
-    padding: 17px 50px;
-    background-color: #F95B0E;
-    border: none;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+input#submitButton{
+    border-radius: 0.6vw;
+    border: 0;
+    padding: 0.85vw 5.8vw;
+    background: #F95B0E;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
-
-.btn:hover{
-    background: linear-gradient(135deg, #9CC4FF 0%, #B4A8FF 100%); 
-    color: #fff;
-    border-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+input#submitButton:hover{
+    background: linear-gradient(135deg, #9CC4FF 0%, #B4A8FF 100%);
 }
-
-.forgetPasswordFrame{
-    width: 50%;
-    height: 60%;
+div.forgetPasswordFrame{
+    width: 40%;
+    height: 50%;
     background: #F6F6F6;
     display: none;
     flex-direction: column;
@@ -119,37 +183,74 @@ input:focus::placeholder{
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    border-radius: 15px;
-    row-gap: 60px;
+    border-radius: 1vw;
+    padding-top: 2.5vw;
+    row-gap: 3vw;
 }
-
 div.exitSection{
+    display: flex;
+    flex-direction: row;
     justify-content: end;
+    padding-right: 1.75vw;
 }
-
 div.mainPart{
-    row-gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1vw;
 }
-
-.txt4:hover{
+span#txt1{
+    color: #000;
+    font-family: Poppins;
+    font-size: 1.8vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+span#txt2{
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 140%;
+}
+span#txt3{
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 0.8vw;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    padding-top: 7.5vw;
+}
+span#txt4{
+    color: #1397F6;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 0.8vw;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+span#txt4:hover{
     text-decoration: underline;
 }
-
-@keyframes write {
-    from {
-      width: 0;
-      opacity: 0;
-    }
-    to {
-      width: 23%;
-      opacity: 1;
-    }
-}
-
-#animated-text {
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 1px solid #fff;
-    font-family: 'Arial', sans-serif;
-    animation: write 3s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+div.passwordWrong{
+    width: 40%;
+    height: 50%;
+    background: #F6F6F6;
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    border-radius: 1vw;
+    padding-top: 2.5vw;
+    row-gap: 3vw;
 }
