@@ -69,7 +69,6 @@ header{
 
 }
 
-
 #video-background {
     position: absolute;
     top: 12%;
@@ -133,7 +132,6 @@ header{
     justify-content: end;
 }
 
-
 footer{
     background-color: #F95B0E;
     height: 60px;
@@ -188,7 +186,6 @@ footer{
     margin-left: 60px;
 }
 
-
 .navigation-points {
     display: flex;
     justify-content: center;
@@ -203,11 +200,9 @@ footer{
     margin: 0 8px;
 }
 
-/* Style for the active point */
 .point.active {
     background-color: #F95B0E;
 }
-
 
 .course-display{
     display: flex;

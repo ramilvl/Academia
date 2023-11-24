@@ -46,9 +46,4 @@ function showCourse(boxNumber) {
     });
 }
 
-
 showCourse(1);
-
-// function scrollToSecondMain() {
-//     document.getElementById('second-main').scrollIntoView({ behavior: 'smooth' });
-// }

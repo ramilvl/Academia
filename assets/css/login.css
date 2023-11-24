@@ -43,7 +43,6 @@
     z-index: -1;
 }
 
-
 .rightPart{
     align-items: center;
     justify-content: start;
@@ -116,7 +115,6 @@ input:focus::placeholder{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-
 .forgetPasswordFrame{
     width: 40%;
     height: 50%;
@@ -155,11 +153,10 @@ div.mainPart{
     }
 }
 
-  #animated-text {
+#animated-text {
     white-space: nowrap;
     overflow: hidden;
     border-right: 1px solid #fff;
     font-family: 'Arial', sans-serif;
     animation: write 3s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-
-  }
+}
