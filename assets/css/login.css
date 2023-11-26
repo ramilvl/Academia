@@ -170,7 +170,7 @@ input#submitButton{
     line-height: normal;
 }
 input#submitButton:hover{
-    background: linear-gradient(135deg, #9CC4FF 0%, #B4A8FF 100%);
+    background-color: #F95B0E;
 }
 div.forgetPasswordFrame{
     width: 40%;

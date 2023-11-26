@@ -89,7 +89,7 @@ header{
 
 .main-2{
     height: 90vh;
-    padding: 50px 40px;
+    padding: 50px 70px;
     background-color: #F6F6F6;
 }
 
@@ -157,13 +157,13 @@ footer{
 }
 
 .slider{
-    height: 73vh;
+    height: 66vh;
     background: rgba(92, 36, 130, 0.10);
     width: 100%;
 }
 
 .slide{
-    padding: 70px 80px;
+    padding: 50px 80px;
     display: flex;
     flex-direction: row;
 }
@@ -189,7 +189,6 @@ footer{
 .navigation-points {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
 }
 
 .point {
@@ -197,7 +196,7 @@ footer{
     height: 11px;
     border-radius: 50%;
     background: rgba(92, 36, 130, 0.10);
-    margin: 0 8px;
+    margin: 0px 8px;
 }
 
 .point.active {

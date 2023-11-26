@@ -31,7 +31,7 @@ function changeContent() {
     currentBox = nextBox;
 }
 
-setInterval(changeContent, 5000);
+setInterval(changeContent, 7000);
 
 function showCourse(boxNumber) {
     var courses = document.querySelectorAll(".slide");

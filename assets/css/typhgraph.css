@@ -142,3 +142,10 @@
 .line-height-1-2{
     line-height: 1.2cm;
 }
+
+.small-quad{
+    width: 27px;
+    height: 27px;
+    border: 2px solid #F95B0E;
+    border-radius: 4px;
+}
