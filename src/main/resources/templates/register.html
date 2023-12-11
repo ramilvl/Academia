@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add user</title>
+</head>
+<body>
+<form th:action=@{/register} method="post">
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <input type="submit" value="Sign in">
+</form>
+</body>
+</html>

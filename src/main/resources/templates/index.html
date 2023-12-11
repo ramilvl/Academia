@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{../assets/css/style.css}" />
+    <link rel="stylesheet" th:href="@{../assets/css/login.css}" />
+</head>
+<body>
+<div class="container">
+    <div class="leftSideBody">
+        <div class="leftSideMainPart">
+            <img id="logo" src="../assets/img/loginLeftImg.svg">
+        </div>
+    </div>
+    <div class="rightSideBody">
+        <div class="rightSideMainPart">
+            <div class="center">
+                <div class="header">
+                    <span id="loginTxt">Welcome</span>
+                </div>
+                <div class="inputForm">
+                    <div>
+                        <p style="color:red;" th:text="${error}"></p>
+                    </div>
+                    <form th:action=@{/login} method="post">
+                        <div class="inputFrame">
+                            <div class="logoContainer"><img class="logo" src="../assets/img/user.svg"></div>
+                            <input type="text" id="username" name="username" placeholder="Username" >
+                        </div>
+                        <div class="inputFrame">
+                            <div class="logoContainer"><img class="logo" src="../assets/img/lock.svg" ></div>
+                                <input id="password" name="password" type="password" placeholder="Password" >
+                            <div class="logoContainer cursor"><img class="logo" id="passwordType" src="../assets/img/hidden.svg"></div>
+                        </div>
+                        <div class="forgetPassword cursor">
+                            <a><span onclick="changeView()" id="forgotPasswordText">Forgot password?</span></a>
+                        </div>
+                        <div class="submitFrame">
+                            <a href="./main-page.html"><input class="cursor" type="submit" id="submitButton"  value="Sign In"></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="forgetPasswordFrame" id="forgotPassword">
+    <div class="exitSection cursor">
+        <img onclick="changeView()" src="../assets/img/x.svg">
+    </div>
+    <div class="mainPart">
+        <span id="txt1">Forgot Password?</span>
+        <span id="txt2">This feature will be implemented in the future.</span>
+        <span class="cursor" id="txt3">Back to <a onclick="changeView()"><span id="txt4">Log in</span></a></span>
+    </div>
+</div>
+<div class="passwordWrong" id="wrongPassword">
+    <div class="exitSection">
+        <img class="cursor" onclick="changeView2()" src="../assets/img/x.svg">
+    </div>
+    <div class="mainPart">
+        <span id="txt1">Login Failed!</span>
+        <span id="txt2">Please check your username or password and try again.</span>
+        <span class=cursor id="txt3">Back to <a onclick="changeView2()"><span id="txt4">Log in</span></a></span>
+    </div>
+</div>
+<script src="../assets/js/login.js"></script>
+</body>
+</html>
