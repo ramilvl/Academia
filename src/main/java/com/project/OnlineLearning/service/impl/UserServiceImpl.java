@@ -22,8 +22,8 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(newUser);
     }
 
-    public Optional<User> login(String username, String password){
-        Optional<User> user = userRepository.findByEmailAndPassword(username,password);
+    public Optional<User> login(String first_name, String password){
+        Optional<User> user = userRepository.findByFirstNameAndPassword(first_name, password);
         return user;
     }
 }

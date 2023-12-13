@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 public interface UserRepository extends CrudRepository<User, Long> {
-    Optional<User> findByEmailAndPassword(String email, String password);
+    Optional<User> findByFirstNameAndPassword (String first_name, String password);
 }

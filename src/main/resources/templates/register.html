@@ -5,9 +5,9 @@
     <title>Add user</title>
 </head>
 <body>
-<form th:action=@{/register} method="post">
-    <input type="text" placeholder="Username">
-    <input type="password" placeholder="Password">
+<form th:action=@{/save} th:object="${user}" method="post">
+    <input type="text" th:field="*{firstName}" placeholder="Username">
+    <input type="password" th:field="*{password}" placeholder="Password">
     <input type="submit" value="Sign in">
 </form>
 </body>

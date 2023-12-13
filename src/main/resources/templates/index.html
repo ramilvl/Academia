@@ -27,7 +27,7 @@
                     <form th:action=@{/login} method="post">
                         <div class="inputFrame">
                             <div class="logoContainer"><img class="logo" src="../assets/img/user.svg"></div>
-                            <input type="text" id="username" name="username" placeholder="Username" >
+                            <input type="text" id="username" name="first_name" placeholder="Username" >
                         </div>
                         <div class="inputFrame">
                             <div class="logoContainer"><img class="logo" src="../assets/img/lock.svg" ></div>
@@ -38,7 +38,7 @@
                             <a><span onclick="changeView()" id="forgotPasswordText">Forgot password?</span></a>
                         </div>
                         <div class="submitFrame">
-                            <a href="./main-page.html"><input class="cursor" type="submit" id="submitButton"  value="Sign In"></a>
+                            <input class="cursor" type="submit" id="submitButton"  value="Sign In">
                         </div>
                     </form>
                 </div>

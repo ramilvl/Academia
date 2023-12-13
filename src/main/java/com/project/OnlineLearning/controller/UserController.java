@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -24,25 +25,32 @@ public class UserController {
     public String loginPage(){
         return "index";
     }
+    
+    @GetMapping("/main-page")
+    public String mainPage(){
+        return "main-page";
+    }
 
     @PostMapping("/login")
-    public String loginToWebsite(@RequestParam String username, @RequestParam String password, Model model){
-       Optional<User> user =  userService.login(username, password);
+    public String loginToWebsite(@RequestParam String first_name, @RequestParam String password, Model model){
+       Optional<User> user =  userService.login(first_name, password);
        if(!user.isPresent()){
            model.addAttribute("error", "There is no such user!");
-           return "login";
+           return "index";
        }
+       model.addAttribute("user", user.get());
        return "main-page";
     }
     
     @GetMapping("/register")
-    public String registerUser(){
+    public String registerUser(Model model){
+        model.addAttribute("user", new User());
         return "register";
     }
     
-    @PostMapping("/register")
-    public String registerToWebsite(User user){
+    @PostMapping("/save")
+    public String registerToWebsite(@ModelAttribute User user){
         userService.save(user);
-        return "index"; 
+        return "redirect:/"; 
     }
 }
