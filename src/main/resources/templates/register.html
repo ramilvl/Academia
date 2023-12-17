@@ -3,12 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <title>Add user</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        input[type="text"], input[type="password"] {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        #password-strength {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .weak, .medium, .strong {
+            color: #ff5555;
+        }
+
+        #toggle-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .toggle-button {
+            padding: 8px 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .light-mode {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-<form th:action=@{/save} th:object="${user}" method="post">
+<form th:action="@{/save}" th:object="${user}" method="post">
+    <p id="greeting"></p>
     <input type="text" th:field="*{firstName}" placeholder="Username">
-    <input type="password" th:field="*{password}" placeholder="Password">
+    <input type="password" th:field="*{password}" placeholder="Password" oninput="checkPasswordStrength(this.value)">
+    <div id="password-strength"></div>
     <input type="submit" value="Sign in">
+
+    <div id="toggle-buttons">
+        <button type="button" class="toggle-button light-mode" onclick="setLightMode()">Light</button>
+        <button type="button" class="toggle-button dark-mode" onclick="setDarkMode()">Dark</button>
+    </div>
 </form>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var greeting = document.getElementById('greeting');
+            var currentTime = new Date().getHours();
+
+            if (currentTime < 12) {
+                greeting.innerText = 'Good morning! \n Instructors, add your students to the course.';
+            } else if (currentTime < 18) {
+                greeting.innerText = 'Good afternoon! \n Instructors, add your students to the course.';
+            } else {
+                greeting.innerText = 'Good evening! \n Instructors, add your students to the course.';
+            }
+        });
+
+        function checkPasswordStrength(password) {
+            var strengthText = document.getElementById('password-strength');
+            var strength = 0;
+
+            if (password.match(/[a-z]+/)) {
+                strength += 1;
+            }
+
+            if (password.match(/[A-Z]+/)) {
+                strength += 1;
+            }
+
+            if (password.match(/[0-9]+/)) {
+                strength += 1;
+            }
+
+            if (password.length >= 8) {
+                strength += 1;
+            }
+
+            if (strength === 0) {
+                strengthText.innerText = '';
+            } else if (strength <= 2) {
+                strengthText.innerText = 'Weak Password';
+                strengthText.className = 'weak';
+            } else if (strength === 3) {
+                strengthText.innerText = 'Medium Password';
+                strengthText.className = 'medium';
+            } else {
+                strengthText.innerText = 'Strong Password';
+                strengthText.className = 'strong';
+            }
+        }
+
+        function setLightMode() {
+            document.body.style.backgroundColor = '#f4f4f4';
+            document.body.style.color = '#333';
+        }
+
+        function setDarkMode() {
+            document.body.style.backgroundColor = '#333';
+            document.body.style.color = '#fff';
+        }
+    </script>
 </body>
 </html>

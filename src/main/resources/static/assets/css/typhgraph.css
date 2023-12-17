@@ -18,6 +18,10 @@
     font-size: 20px
 }
 
+.text-size-25px{
+    font-size: 25px
+}
+
 .text-size-35px{
     font-size: 35px
 }
@@ -62,6 +66,9 @@
     color: #F6F6F6;
 }
 
+.mb-15px{
+    margin-bottom: 15px;
+}
 .ml-13{
     margin-left: 13px;
 }
