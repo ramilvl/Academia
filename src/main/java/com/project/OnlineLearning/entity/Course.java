@@ -26,10 +26,5 @@ public class Course {
     @OneToMany(mappedBy = "course")
     private Set<Enrollment> enrollments;
 
-    // Getter and setter methods...
-
-    // Add the following getter method for students
-    public Set<User> getStudents() {
-        return students;
-    }
+    
 }

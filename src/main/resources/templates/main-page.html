@@ -76,14 +76,16 @@
         </div>
     </div>
     <div class="box-display">
-        <!-- Iterate over the list of courses -->
         <div th:each="course : ${courses}" class="box">
             <div class="sm-box">
                 <div class="sm-box-display">
                     <span th:text="${course.courseName}" class="font-poppins font-600 text-size-20px"></span>
-                    <!-- Check if lectureCount is not null before accessing it -->
-                    <span   class="font-poppins text-size-15px"></span>
-                    <span  class="font-poppins text-size-15px">No lectures available</span>
+
+                    <!-- Check if there are any lectures associated with the course -->
+                    <span class="font-poppins text-size-15px">
+                        Lectures: <span></span>
+                    </span>
+                    <span class="font-poppins text-size-15px">No lectures available</span>
                 </div>
                 <div class="sm-box-display-2">
                     <!-- Link to explore all lectures for a specific course -->
@@ -91,6 +93,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </main>
 

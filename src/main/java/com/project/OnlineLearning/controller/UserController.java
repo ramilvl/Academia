@@ -38,10 +38,6 @@
     
                 if (userOptional.isPresent()) {
                     User user = userOptional.get();
-                    // Log user and their courses
-                    System.out.println("User: " + user.getFirstName());
-                    System.out.println("Courses: " + user.getCourses());
-    
                     model.addAttribute("courses", user.getCourses());
                     model.addAttribute("user", user);
                     return "main-page";
