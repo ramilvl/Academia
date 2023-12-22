@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
-    <link rel="stylesheet" th:href="@{../assets/css/style.css}" />
-    <link rel="stylesheet" th:href="@{../assets/css/main-page.css}" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/main-page.css">
 </head>
 <body>
 <header>
@@ -76,47 +76,18 @@
         </div>
     </div>
     <div class="box-display">
-        <div class="box">
+        <!-- Iterate over the list of courses -->
+        <div th:each="course : ${courses}" class="box">
             <div class="sm-box">
                 <div class="sm-box-display">
-                    <span class="font-poppins font-600 text-size-20px">Physics</span>
-                    <span class="font-poppins text-size-15px">14 lectures</span>
+                    <span th:text="${course.courseName}" class="font-poppins font-600 text-size-20px"></span>
+                    <!-- Check if lectureCount is not null before accessing it -->
+                    <span   class="font-poppins text-size-15px"></span>
+                    <span  class="font-poppins text-size-15px">No lectures available</span>
                 </div>
                 <div class="sm-box-display-2">
-                    <span class="italic cursor text-size-15px color-orange font-poppins">Explore all</span>
-                </div>
-            </div>
-        </div>
-        <div class="box">
-            <div class="sm-box">
-                <div class="sm-box-display">
-                    <span class="font-poppins font-600 text-size-20px">Calculus</span>
-                    <span class="font-poppins text-size-15px">15 lectures</span>
-                </div>
-                <div class="sm-box-display-2">
-                    <span class="italic cursor text-size-15px color-orange font-poppins">Explore all</span>
-                </div>
-            </div>
-        </div>
-        <div class="box">
-            <div class="sm-box">
-                <div class="sm-box-display">
-                    <span class="font-poppins font-600 text-size-20px">Literature</span>
-                    <span class="font-poppins text-size-15px">12 lectures</span>
-                </div>
-                <div class="sm-box-display-2">
-                    <span class="italic cursor text-size-15px color-orange font-poppins">Explore all</span>
-                </div>
-            </div>
-        </div>
-        <div class="box">
-            <div class="sm-box">
-                <div class="sm-box-display">
-                    <span class="font-poppins font-600 text-size-20px">Philosophy</span>
-                    <span class="font-poppins text-size-15px">10 lectures</span>
-                </div>
-                <div class="sm-box-display-2">
-                    <span class="italic cursor text-size-15px color-orange font-poppins">Explore all</span>
+                    <!-- Link to explore all lectures for a specific course -->
+                    <a th:href="@{'/explore/' + ${course.id}}" class="italic cursor text-size-15px color-orange font-poppins">Explore all</a>
                 </div>
             </div>
         </div>
