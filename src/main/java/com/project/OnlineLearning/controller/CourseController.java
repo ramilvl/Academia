@@ -22,9 +22,6 @@ public class CourseController {
     public String getCourses(Model model) {
         List<Course> courses = courseService.getAllCourses();
         model.addAttribute("courses", courses);
-        if (!courses.isEmpty()) {
-            model.addAttribute("courseId", courses.get(0).getId());
-        }
         return "courses";
     }
     @PostMapping
