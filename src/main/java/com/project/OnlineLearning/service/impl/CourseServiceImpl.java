@@ -15,12 +15,8 @@ import java.util.Optional;
 
 @Service
 public class CourseServiceImpl implements CourseService {
-    private final CourseRepository courseRepository;
-
     @Autowired
-    public CourseServiceImpl(CourseRepository courseRepository) {
-        this.courseRepository = courseRepository;
-    }
+    private CourseRepository courseRepository;
 
     @Transactional
     public Course createCourse(String courseName) {
@@ -29,17 +25,6 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.save(course);
     }
 
-    @Transactional
-    public void enrollStudent(Long courseId, User student) {
-        Course course = courseRepository.findById(courseId)
-                .orElseThrow(() -> new EntityNotFoundException("Course not found"));
-
-        // Add the student to the course
-        course.getStudents().add(student);
-
-        // Update the course and student in the database
-        courseRepository.save(course);
-    }
 
     @Override
     public List<Course> getAllCourses() {

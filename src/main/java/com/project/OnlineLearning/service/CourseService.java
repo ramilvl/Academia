@@ -8,9 +8,6 @@ import java.util.Optional;
 
 public interface CourseService {
     Course createCourse(String courseName);
-    void enrollStudent(Long courseId, User student);
     List<Course> getAllCourses();
-
-    // New method to get course by ID
     Optional<Course> getCourseById(Long courseId);
 }

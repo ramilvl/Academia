@@ -4,13 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses Page</title>
-    <!-- Add your CSS stylesheets or include a CSS framework -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        thead {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 60%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+            margin-top: 10px;
+        }
+
+        a:hover {
+            color: #2980b9;
+        }
+    </style>
 </head>
 <body>
-
 <h2>Courses Page</h2>
-
-<!-- Display a list of courses -->
 <table>
     <thead>
     <tr>
@@ -19,7 +92,6 @@
     </tr>
     </thead>
     <tbody>
-    <!-- Use Thymeleaf to iterate through the list of courses -->
     <tr th:each="course : ${courses}">
         <td th:text="${course.id}"></td>
         <td th:text="${course.courseName}"></td>
@@ -27,18 +99,11 @@
     </tbody>
 </table>
 
-<!-- Add a form to create a new course -->
 <form method="post" action="/courses">
     <label for="courseName">Course Name:</label>
     <input type="text" id="courseName" name="courseName" required>
     <button type="submit">Create Course</button>
 </form>
-
-
-<!-- Add a link to navigate back or to another page -->
 <a th:href="@{/}">Go Back</a>
-
-<!-- Add your JavaScript scripts or include a JavaScript framework -->
-
 </body>
 </html>
