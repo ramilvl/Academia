@@ -4,6 +4,8 @@ import com.project.OnlineLearning.entity.Role;
 import com.project.OnlineLearning.entity.User;
 import com.project.OnlineLearning.repository.UserRepository;
 import com.project.OnlineLearning.service.UserService;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,6 +57,13 @@ public class UserServiceImpl implements UserService {
     public User getUserByUsername(String username) {
         Optional<User> userOptional = userRepository.findByFirstName(username);
         return userOptional.orElse(new User());
+    }
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public void detachUser(User user) {
+        entityManager.detach(user);
     }
 
 }

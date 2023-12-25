@@ -21,13 +21,10 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/enroll")
 public class EnrollController {
-
     @Autowired
     private UserService userService;
-
     @Autowired
     private CourseService courseService;
-
     @Autowired
     private EnrollmentService enrollmentService;
 
@@ -45,35 +42,27 @@ public class EnrollController {
 
     @PostMapping("/save")
     public String saveEnrollment(@ModelAttribute("enrollment") Enrollment enrollment, RedirectAttributes redirectAttributes) {
-        // Retrieve the user and course objects based on the selected IDs
         Optional<User> optionalUser = userService.getUserById(enrollment.getUser().getId());
         Optional<Course> optionalCourse = courseService.getCourseById(enrollment.getCourse().getId());
 
-        // Check if the objects are present in Optional, otherwise handle the case accordingly
         if (optionalUser.isPresent() && optionalCourse.isPresent()) {
             User selectedUser = optionalUser.get();
             Course selectedCourse = optionalCourse.get();
 
-            // Set the retrieved user and course to the enrollment object
             enrollment.setUser(selectedUser);
             enrollment.setCourse(selectedCourse);
 
-            // Save the enrollment to the database
             enrollmentService.saveEnrollment(enrollment);
+            
+            userService.detachUser(selectedUser);
 
-            // Add a success message to be displayed on the form
             redirectAttributes.addFlashAttribute("success", "Enrollment successful");
 
             return "redirect:/enroll/form";
         } else {
-            // Handle the case when user or course is not found
-            // Add an error message to be displayed on the form
             redirectAttributes.addFlashAttribute("error", "User or course not found");
             return "redirect:/enroll/form";
         }
     }
-
-
-
-
+    
 }

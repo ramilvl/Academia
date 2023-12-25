@@ -9,15 +9,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EnrollmentServiceImpl implements EnrollmentService {
-
     @Autowired
     private EntityManager entityManager;
 
     @Override
     @Transactional
     public void saveEnrollment(Enrollment enrollment) {
-        // Your save logic here, for example:
         entityManager.persist(enrollment);
-        // entityManager.flush(); // Uncomment this line if needed
     }
 }
