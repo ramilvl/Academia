@@ -25,14 +25,7 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
-
-    @Override
-    public User createStudent(String studentName) {
-        User student = new User();
-        student.setFirstName(studentName);
-        // Set other properties as needed
-        return userRepository.save(student);
-    }
+   
 
     @Override
     public User save(User user) {
@@ -62,10 +55,6 @@ public class UserServiceImpl implements UserService {
     public User getUserByUsername(String username) {
         Optional<User> userOptional = userRepository.findByFirstName(username);
         return userOptional.orElse(new User());
-    }
-
-    public Optional<User> getFirstUser() {
-        return userRepository.findAll().stream().findFirst();
     }
 
 }
