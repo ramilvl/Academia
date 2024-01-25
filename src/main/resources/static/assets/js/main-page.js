@@ -1,3 +1,5 @@
+const coursesList = document.querySelector('.courses-list');    
+
 function scrollToSection(sectionId) {
     var section = document.getElementById(sectionId);
     if (section) {

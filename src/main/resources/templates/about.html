@@ -1,0 +1,54 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Project</title>
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/about.css}">
+</head>
+<body>
+<header>
+    <div class="header-logo">
+        <img width="80px" height="80px" src="../assets/img/pic2.svg" alt="">
+        <span class="color-white text-size-36px font-fuggles" id="animated-text">A' Learn</span>
+    </div>
+    <div class="header-title">
+        <a class="color-F6 font-poppins text-size-15px font-400 cursor" th:href="@{/navigation/main}">Home</a>
+        <a class="color-F6 font-poppins text-size-15px font-400 cursor" th:href="@{/navigation/about}">About</a>
+        <a class="color-F6 font-poppins text-size-15px font-400 cursor" onclick="scrollToSection('courses')">My Courses</a>
+        <a class="color-F6 font-poppins text-size-15px font-400 cursor" onclick="scrollToSection('contact')">Contact</a>
+    </div>
+
+    <div class="user-profile">
+        <i><p style="margin-top:10px;" class="color-white text-size-18px" th:text="${user != null ? user.firstName : ''}"></p></i>
+    </div>
+</header>
+
+<div class="about-content">
+    <h1>Welcome to A' Learn</h1>
+    <p>
+        We are dedicated to providing an innovative online learning and examination system.
+        Our mission is to empower learners with quality education and assessments, making learning
+        accessible and enjoyable for everyone.
+    </p>
+    <p th:if="${user != null}">
+        Hello, <span th:text="${user.firstName}"></span>! A' Learn is designed to offer a seamless learning experience,
+        allowing users to explore courses, track their progress, and stay informed about the latest updates
+        and notifications. Join us on this educational journey and discover new grades with every effort you make!
+    </p>
+    <p th:unless="${user != null}">
+        A' Learn is designed to offer a seamless learning experience, allowing users to explore courses,
+        track their progress, and stay informed about the latest updates and notifications. Join us on this
+        educational journey and discover new grades with every effort you make!
+    </p>
+</div>
+
+<footer>
+    <!-- Include your footer content if needed -->
+</footer>
+
+<script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>

@@ -106,7 +106,7 @@ header{
     height: 220px;
     background: #C4C4C4;
     border-radius: 10px;
-    box-sizing: border-box; /* Ensure consistent box-sizing */
+    box-sizing: border-box;
 }
 
 
@@ -136,15 +136,6 @@ header{
     justify-content: end;
 }
 
-footer{
-    background-color: #F95B0E;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    padding: 10px 25px;
-    gap: 300px;
-}
 
 .f-1{
     display: flex;

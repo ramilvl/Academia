@@ -1,0 +1,14 @@
+<!-- courseDetails.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Your head content goes here -->
+</head>
+<body>
+<h2 th:text="${course.courseName}"></h2>
+
+<a th:href="@{'/courses/' + ${course.id} + '/lectures'}">View Lectures</a>
+<a th:href="@{'/courses/' + ${course.id} + '/test'}">Start Testing</a>
+
+</body>
+</html>

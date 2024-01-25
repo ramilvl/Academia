@@ -58,6 +58,8 @@ public class UserServiceImpl implements UserService {
         Optional<User> userOptional = userRepository.findByFirstName(username);
         return userOptional.orElse(new User());
     }
+    
+    
 
     @PersistenceContext
     private EntityManager entityManager;
