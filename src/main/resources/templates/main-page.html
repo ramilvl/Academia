@@ -68,30 +68,36 @@
 </div>
 
 <main class="main-2" id="second-main">
-    <div class="course-display">
-        <span class="color-orange text-size-36px font-poppins font-400">Courses</span>
-        <div class="course-display-2">
-            <button><i class="cursor icon icon-left small-quad"></i></button>
-            <button><i class="cursor icon-27 icon-right mr-50px"></i></button>
-        </div>
-    </div>
-    <div class="box-display">
-        <div th:each="course : ${courses}" class="box">
-            <div class="sm-box">
-                <div class="sm-box-display">
-                    <span th:text="${course.courseName}" class="font-poppins font-600 text-size-20px"></span>
-<br><br>
-                    <span class="font-poppins text-size-15px">
-                        Lectures: <span></span>
-                    </span>
-                </div>
-                <div class="sm-box-display-2">
-                    <a class="italic cursor text-size-15px color-orange font-poppins" th:href="@{'/courses/' + ${course.id}}">Explore all</a>
-                </div>
+    
+    <div class="main-page-box">
+        <div class="course-display">
+            <span class="color-orange text-size-36px font-poppins font-400">Courses</span>
+            <div class="course-display-2">
+                <button><i class="cursor icon icon-left small-quad"></i></button>
+                <button><i class="cursor icon-27 icon-right mr-50px"></i></button>
             </div>
         </div>
 
+
+
+        <div class="box-display">
+
+            <div th:each="course : ${courses}" class="box">
+                <div class="sm-box">
+                    <div class="sm-box-display">
+                        <span th:text="${course.courseName}" class="font-poppins font-600 text-size-20px"></span>
+                        <span class="font-poppins text-size-15px">Lectures:</span>
+                    </div>
+                    <div class="sm-box-display-2">
+                        <a class="italic cursor text-size-15px color-orange font-poppins" th:href="@{'/courses/' + ${course.id}}">Explore all</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
+    
+    
 </main>
 
 <footer>

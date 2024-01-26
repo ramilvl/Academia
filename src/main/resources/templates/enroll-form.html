@@ -94,14 +94,12 @@
 </div>
 
 <form th:action="@{/enroll/save}" th:object="${enrollment}" method="post">
-    <!-- User selection dropdown -->
     <label for="user">Student List</label>
     <select th:field="*{user}" id="user">
-        <option th:each="user : ${users != null and not #lists.isEmpty(users) ? users : {}}" th:value="${user.id}" th:text="${user.firstName + ' ' + user.lastName}"></option>
+        <option th:each="user : ${users != null and not #lists.isEmpty(users) ? users : {}}" th:value="${user.id}" th:text="${user.firstName}"></option>
     </select>
     <br>
 
-    <!-- Course selection dropdown -->
     <label for="course">Courses</label>
     <select th:field="*{course}" id="course">
         <option th:each="course : ${courses}" th:value="${course.id}" th:text="${course.courseName}"></option>

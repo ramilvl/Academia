@@ -85,7 +85,6 @@ header{
 
 .main-2{
     width: 100%;
-    overflow: hidden;
     height: 90vh;
     padding: 50px 70px;
     background-color: #F6F6F6;
@@ -96,25 +95,28 @@ header{
     flex-direction: row;
     gap: 30px;
     align-items: center;
-    margin-top: 120px;
-    overflow: hidden;
 }
 
+.main-page-box{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction:column;
+    gap:100px;
+}
 
 .box {
     width: 280px;
     height: 220px;
     background: #C4C4C4;
     border-radius: 10px;
-    box-sizing: border-box; /* Ensure consistent box-sizing */
 }
-
 
 .sm-box{
     background-color: #fff;
     width: 280px;
     height: 80px;
-    margin-top: 54%;
+    margin-top: 140px;
     border-radius: 0px 0px 10px 10px;
     padding: 17px;
     display: flex;
@@ -122,19 +124,29 @@ header{
 }
 
 .sm-box-display{
-    width: 80%
     display: flex;
     flex-direction: column;
     gap: 14px;
-    width: 50%;
+    width: 60%;
 }
 
 .sm-box-display-2{
-    width: 20%;
+    width: 40%;
     display: flex;
     align-items: end;
     justify-content: end;
 }
+
+
+.course-display{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+
 
 footer{
     background-color: #F95B0E;
@@ -205,10 +217,4 @@ footer{
 
 .point.active {
     background-color: #F95B0E;
-}
-
-.course-display{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
