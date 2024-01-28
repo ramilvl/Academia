@@ -2,6 +2,7 @@ package com.project.OnlineLearning.service.impl;
 
 import com.project.OnlineLearning.entity.Role;
 import com.project.OnlineLearning.entity.User;
+import com.project.OnlineLearning.repository.RoleRepository;
 import com.project.OnlineLearning.repository.UserRepository;
 import com.project.OnlineLearning.service.UserService;
 import jakarta.persistence.EntityManager;
@@ -15,6 +16,8 @@ import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService {
+    @Autowired
+    private RoleRepository roleRepository;
 
     private final UserRepository userRepository;
 
@@ -27,19 +30,23 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
-   
 
     @Override
     public User save(User user) {
-        User newUser = new User(
-                user.getFirstName(),
-                user.getLastName(),
-                user.getEmail(),
-                user.getPassword(),
-                user.getCourses()
-        );
+        try {
+            Role userRole = user.getRole();
 
-        return userRepository.save(newUser);
+            if (userRole != null && userRole.getId() == null) {
+                Role savedRole = roleRepository.save(userRole);
+                user.setRole(savedRole);
+            }
+
+            // Save the user
+            return userRepository.save(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Failed to save user: " + e.getMessage());
+        }
     }
 
 
@@ -58,14 +65,24 @@ public class UserServiceImpl implements UserService {
         Optional<User> userOptional = userRepository.findByFirstName(username);
         return userOptional.orElse(new User());
     }
-    
-    
 
     @PersistenceContext
     private EntityManager entityManager;
 
+    @Override
     public void detachUser(User user) {
         entityManager.detach(user);
     }
+
+    @Override
+    public boolean isAdmin(User user) {
+        Role userRole = user.getRole();
+        return userRole != null && userRole.getName().equals("ADMIN");
+    }
+
+
+
+
+
 
 }

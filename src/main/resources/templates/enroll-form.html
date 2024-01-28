@@ -83,12 +83,10 @@
 <body>
 <h2>Enrollment Form</h2>
 
-<!-- Display success message -->
 <div th:if="${success}" class="alert alert-success">
     <p th:text="${success}"></p>
 </div>
 
-<!-- Display error message -->
 <div th:if="${error}" class="alert alert-danger">
     <p th:text="${error}"></p>
 </div>
@@ -96,7 +94,7 @@
 <form th:action="@{/enroll/save}" th:object="${enrollment}" method="post">
     <label for="user">Student List</label>
     <select th:field="*{user}" id="user">
-        <option th:each="user : ${users != null and not #lists.isEmpty(users) ? users : {}}" th:value="${user.id}" th:text="${user.firstName}"></option>
+        <option th:each="user : ${users != null and not #lists.isEmpty(users) ? users : {}}" th:value="${user.id}" th:text="${user.firstName    }"></option>
     </select>
     <br>
 
@@ -106,10 +104,8 @@
     </select>
     <br>
 
-    <!-- Enroll button -->
     <button type="submit">Enroll</button>
 
-    <!-- Back to Main Page button -->
     <a th:href="@{/}" style="text-decoration: none;">
         <button type="button">Back to Main Page</button>
     </a>

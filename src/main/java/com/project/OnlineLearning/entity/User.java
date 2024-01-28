@@ -26,6 +26,11 @@ public class User {
 
     private String password;
 
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+
+
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "user_course",
@@ -33,6 +38,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "course_id")
     )
     private List<Course> courses;
+
     
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)

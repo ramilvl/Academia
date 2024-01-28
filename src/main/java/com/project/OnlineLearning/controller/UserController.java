@@ -44,7 +44,8 @@
             model.addAttribute("error", "No user found with the provided username.");
             return "index";
         }
-        
+
+
         @PostMapping("/login")
         public String loginToWebsite(@RequestParam String first_name, @RequestParam String password, Model model, HttpServletRequest request) {
             Optional<User> user = userService.login(first_name, password);
@@ -52,12 +53,19 @@
                 model.addAttribute("error", "There is no such user!");
                 return "index";
             }
-    
-            request.getSession().setAttribute("username", first_name);
-            model.addAttribute("user", user.get());
-            return "redirect:/main-page";
+
+            if (userService.isAdmin(user.get())) {
+                request.getSession().setAttribute("username", first_name);
+                model.addAttribute("user", user.get());
+                return "admin-dashboard";
+            } else {
+                request.getSession().setAttribute("username", first_name);
+                model.addAttribute("user", user.get());
+                return "redirect:/main-page";
+            }
         }
-        
+
+
         @GetMapping("/register")
         public String registerUser(Model model) {
             model.addAttribute("user", new User());
