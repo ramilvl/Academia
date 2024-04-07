@@ -2,6 +2,8 @@ package com.project.OnlineLearning.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 import java.util.Set;
 
 
@@ -23,5 +25,4 @@ public class Course {
     @OneToMany(mappedBy = "course")
     private Set<Enrollment> enrollments;
 
-    
 }

@@ -1,5 +1,6 @@
 package com.project.OnlineLearning.entity;
 
+import com.project.OnlineLearning.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,15 +20,9 @@ public class User {
     @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "last_name")
-    private String lastName;
-
-    private String email;
-
     private String password;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id")
+    @Enumerated(EnumType.STRING)
     private Role role;
 
 
@@ -39,15 +34,12 @@ public class User {
     )
     private List<Course> courses;
 
-    
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Enrollment> enrollments;
 
-    public User(String firstName, String lastName, String email, String password, List<Course> courses) {
+    public User(String firstName, String lastName, String password, List<Course> courses) {
         this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
         this.password = password;
         this.courses = courses;
     }

@@ -1,14 +1,18 @@
-<!-- courseDetails.html -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <!-- Your head content goes here -->
+    <title>Course Details</title>
+    <!-- Other head elements -->
 </head>
 <body>
-<h2 th:text="${course.courseName}"></h2>
+<!-- Course details -->
 
-<a th:href="@{'/courses/' + ${course.id} + '/lectures'}">View Lectures</a>
-<a th:href="@{'/courses/' + ${course.id} + '/test'}">Start Testing</a>
+<!-- Start test button --><!-- Error message section -->
+<div th:if="${error}" th:text="${error}" class="error-message"></div>
+<div th:if="${course}">
+    <!-- Display course details -->
+    <a th:href="@{/courses/test/start/{courseId}(courseId=${course.id})}">Start Testing</a>
+</div>
 
 </body>
 </html>

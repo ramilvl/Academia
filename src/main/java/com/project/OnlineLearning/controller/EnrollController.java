@@ -53,7 +53,7 @@ public class EnrollController {
             enrollment.setCourse(selectedCourse);
 
             enrollmentService.saveEnrollment(enrollment);
-            
+
             userService.detachUser(selectedUser);
 
             redirectAttributes.addFlashAttribute("success", "Enrollment successful");
@@ -64,5 +64,5 @@ public class EnrollController {
             return "redirect:/enroll/form";
         }
     }
-    
+
 }

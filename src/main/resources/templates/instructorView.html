@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor View</title>
+    <!-- Add your CSS stylesheets here -->
+</head>
+<body>
+<header>
+    <!-- Your header content goes here -->
+</header>
+
+<main>
+    <div class="container">
+        <h2>Instructor View</h2>
+
+        <!-- Form to add PDF files -->
+        <form th:action="@{/courses/addPdf}" method="post" enctype="multipart/form-data">
+            <label for="pdfFile">Upload PDF File:</label>
+            <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" required>
+            <input type="hidden" th:value="${course.id}" name="courseId">
+            <button type="submit">Add PDF</button>
+        </form>
+
+        <!-- Form to add quiz questions -->
+        <form th:action="@{/courses/addQuiz}" method="post">
+            <label for="question">Add Quiz Question:</label>
+            <textarea id="question" name="question" rows="4" required></textarea>
+            <input type="hidden" th:value="${course.id}" name="courseId">
+            <button type="submit">Add Quiz Question</button>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <!-- Your footer content goes here -->
+</footer>
+
+<!-- Add your scripts or external script references here -->
+</body>
+</html>

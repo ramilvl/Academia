@@ -1,8 +1,7 @@
 package com.project.OnlineLearning.service.impl;
 
-import com.project.OnlineLearning.entity.Role;
 import com.project.OnlineLearning.entity.User;
-import com.project.OnlineLearning.repository.RoleRepository;
+import com.project.OnlineLearning.enums.Role;
 import com.project.OnlineLearning.repository.UserRepository;
 import com.project.OnlineLearning.service.UserService;
 import jakarta.persistence.EntityManager;
@@ -12,12 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
-    private RoleRepository roleRepository;
 
     private final UserRepository userRepository;
 
@@ -33,20 +29,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User user) {
-        try {
-            Role userRole = user.getRole();
-
-            if (userRole != null && userRole.getId() == null) {
-                Role savedRole = roleRepository.save(userRole);
-                user.setRole(savedRole);
-            }
-
-            // Save the user
-            return userRepository.save(user);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to save user: " + e.getMessage());
-        }
+        return userRepository.save(user);
     }
 
 
@@ -77,12 +60,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean isAdmin(User user) {
         Role userRole = user.getRole();
-        return userRole != null && userRole.getName().equals("ADMIN");
+        return userRole.equals(Role.ADMIN);
     }
 
-
-
-
-
-
+    @Override
+    public boolean isInstructor(User user) {
+        Role userRole = user.getRole();
+        return userRole.equals(Role.INSTRUCTOR);
+    }
 }

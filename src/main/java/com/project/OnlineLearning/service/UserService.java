@@ -12,5 +12,6 @@ public interface UserService {
     Optional<User> getUserById(Long userId);
     User getUserByUsername(String username);
     void detachUser(User user);
-    boolean isAdmin(User user); 
+    boolean isAdmin(User user);
+    boolean isInstructor(User user);
 }

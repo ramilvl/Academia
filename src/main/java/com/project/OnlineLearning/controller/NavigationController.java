@@ -17,4 +17,9 @@ public class NavigationController {
         return "main-page"; 
     }
 
+    @GetMapping(value = "/admin-dash")
+    public String goToAdminDashboard(){
+        return "admin-dashboard";
+    }
+
 }

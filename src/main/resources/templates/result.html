@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Test Result</title>
+</head>
+<body>
+<h1>Correct Answer: <span th:text="${score}"></span></h1>
+
+<div th:each="question : ${incorrectQuestions}">
+    <p th:text="${question.content}"></p>
+    <div th:if="${explanations[question.id]}">
+        <p>Explanation:</p>
+        <p th:text="${explanations[question.id]}"></p>
+    </div>
+</div>
+
+</body>
+</html>

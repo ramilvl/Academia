@@ -10,4 +10,5 @@ public interface CourseService {
     Course createCourse(String courseName);
     List<Course> getAllCourses();
     Optional<Course> getCourseById(Long courseId);
+
 }

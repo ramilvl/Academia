@@ -1,7 +1,9 @@
 package com.project.OnlineLearning.controller;
 
 import com.project.OnlineLearning.entity.Course;
+import com.project.OnlineLearning.entity.Test;
 import com.project.OnlineLearning.service.CourseService;
+import com.project.OnlineLearning.service.impl.TestServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,12 @@ public class CourseController {
 
     @Autowired
     private CourseService courseService;
+    private final TestServiceImpl testService;
+
+    @Autowired
+    public CourseController(TestServiceImpl testService) {
+        this.testService = testService;
+    }
 
     @GetMapping
     public String getCourses(Model model) {
@@ -39,11 +47,26 @@ public class CourseController {
             model.addAttribute("course", course);
             return "courseDetails";
         } else {
-            // Handle the case where the course is not found
-            return "courseNotFound"; // Create a Thymeleaf template for displaying a not-found message
+            model.addAttribute("error", "The requested course was not found.");
+            return "errorPage"; // Assuming you have an 'errorPage.html' template
         }
     }
 
 
+    @GetMapping("/test/start/{courseId}")
+    public String startTest(@PathVariable Long courseId, Model model) {
+        Test test = testService.findTestByCourseId(courseId);
+        if (test != null) {
+            model.addAttribute("test", test);
+            return "test";
+        } else {
+            model.addAttribute("error", "Test not found for the given course.");
+            return "courseDetails";  // Make sure this template handles the error attribute.
+        }
+    }
 
 }
+
+
+
+

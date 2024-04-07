@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/main-page.css}">
+
+</head>
+<body>
+<header>
+    <div class="header-logo">
+        <img width="80px" height="80px" src="../assets/img/pic2.svg" alt="">
+        <span class="color-white text-size-36px font-fuggles" id="animated-text">A' Learn</span>
+    </div>
+    <div class="header-title">
+        <a class="color-F6 font-poppins text-size-15px font-400 cursor" onclick="scrollToSection('home')">Home</a>
+        <a class="color-F6 font-poppins text-size-15px font-400 cursor" th:href="@{/navigation/about}">About</a>
+        <a class="color-F6 font-poppins text-size-15px font-400 cursor" onclick="scrollToSection('courses')">My Courses</a>
+        <a class="color-F6 font-poppins text-size-15px font-400 cursor" onclick="scrollToSection('contact')">Contact</a>
+    </div>
+
+    <div class="user-profile">
+        <p style="margin-top:10px;" class="color-white text-size-18px" th:text="${user != null ? user.firstName : ''}"></p>
+    </div>
+</header>
+
+<div class="slider">
+    <div class="slide" id="bx-1">
+        <div class="slide-text">
+            <span class="font-poppins text-size-36px font-500 line-height-1-2">Your Learning Journey Continues: Discover New Grades!</span>
+            <span class="font-poppins text-size-18px font-400">Your effort matters: don't give up!</span>
+            <button class="bg-orange border-radius-8px cursor color-white text-size-15px">View Grade</button>
+        </div>
+        <div class="slide-img">
+            <img src="../assets/img/astar.svg" alt="">
+        </div>
+    </div>
+
+    <div class="slide" id="bx-2">
+        <div class="slide-text">
+            <span class="font-poppins text-size-36px font-500 line-height-1-2">Up-to-the-Minute: Explore New Notifications Today!</span>
+            <span class="font-poppins text-size-18px font-400">Stay informed: check out the latest notifications!</span>
+            <button class="font-poppins bg-orange p-12-40 border-radius-8px cursor color-white text-size-15px">View Notification</button>
+        </div>
+        <div class="slide-img">
+            <img src="../assets/img/Framsframe.svg" alt="">
+        </div>
+    </div>
+
+    <div class="slide" id="bx-3">
+        <div class="slide-text">
+            <span class="font-poppins text-size-36px font-500 line-height-1-2">Get Set to Explore: Check Out Our Newest Updates!</span>
+            <span class="font-poppins text-size-18px font-400">Your learning journey upgraded: dive into new updates!</span>
+            <button class="font-poppins bg-orange p-12-40 border-radius-8px cursor color-white text-size-15px">View Update</button>
+        </div>
+        <div class="slide-img">
+            <img src="../assets/img/setting-3.svg" alt="">
+        </div>
+    </div>
+
+    <div class="navigation-points">
+        <span class="point cursor" onclick="showCourse(1)"></span>
+        <span class="point cursor" onclick="showCourse(2)"></span>
+        <span class="point cursor" onclick="showCourse(3)"></span>
+    </div>
+</div>
+
+<main class="main-2" id="second-main">
+
+    <div class="main-page-box">
+        <div class="course-display">
+            <span class="color-orange text-size-36px font-poppins font-400">Courses</span>
+            <div class="course-display-2">
+                <button><i class="cursor icon icon-left small-quad"></i></button>
+                <button><i class="cursor icon-27 icon-right mr-50px"></i></button>
+            </div>
+        </div>
+
+
+
+        <div class="box-display">
+
+            <div th:each="course : ${courses}" class="box">
+                <div class="sm-box">
+                    <div class="sm-box-display">
+                        <span th:text="${course.courseName}" class="font-poppins font-600 text-size-20px"></span>
+                        <span class="font-poppins text-size-15px">Lectures:</span>
+                    </div>
+                    <div class="sm-box-display-2">
+                        <a class="italic cursor text-size-15px color-orange font-poppins" th:href="@{'/courses/' + ${course.id}}">Explore all</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</main>
+
+<footer>
+    <div class="f-1">
+        <i class="icon-20 icon-copyright"></i>
+        <span class="color-F6 text-size-15px font-poppins">2023 | All Rights Reserved</span>
+    </div>
+
+    <div class="footer-text">
+        <span class="color-F6 font-poppins cursor text-size-15px">Home</span>
+        <span class="color-F6 font-poppins cursor text-size-15px">About</span>
+        <span class="color-F6 font-poppins cursor text-size-15px">My Courses</span>
+        <span class="color-F6 font-poppins cursor text-size-15px">Contact</span>
+        <span class="color-F6 font-poppins cursor text-size-15px">Privacy Policy</span>
+        <span class="color-F6 font-poppins cursor text-size-15px">Terms of Use</span>
+    </div>
+</footer>
+
+<script th:src="@{/assets/js/main-page.js}"></script>
+<script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>

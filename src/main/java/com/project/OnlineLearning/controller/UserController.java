@@ -58,7 +58,13 @@
                 request.getSession().setAttribute("username", first_name);
                 model.addAttribute("user", user.get());
                 return "admin-dashboard";
-            } else {
+            }
+            else if(userService.isInstructor(user.get())){
+                request.getSession().setAttribute("username", first_name);
+                model.addAttribute("user", user.get());
+                return "instructor-dashboard";
+            }
+            else {
                 request.getSession().setAttribute("username", first_name);
                 model.addAttribute("user", user.get());
                 return "redirect:/main-page";

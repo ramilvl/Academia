@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Take Test</title>
+    <!-- Include necessary CSS and JS here -->
+</head>
+<body>
+<form th:action="@{/tests/{testId}(testId=${test.id})}" method="post">
+    <div th:each="question : ${test.questions}">
+        <p th:text="${question.content}"></p>
+        <!-- Display question options here -->
+        <input type="radio" th:name="|question${question.id}|" th:value="A" /> <label th:text="${question.optionA}"></label><br/>
+        <input type="radio" th:name="|question${question.id}|" th:value="B" /> <label th:text="${question.optionB}"></label><br/>
+        <input type="radio" th:name="|question${question.id}|" th:value="C" /> <label th:text="${question.optionC}"></label><br/>
+        <input type="radio" th:name="|question${question.id}|" th:value="D" /> <label th:text="${question.optionD}"></label><br/>
+    </div>
+    <button type="submit">Submit Test</button>
+</form>
+</body>
+</html>

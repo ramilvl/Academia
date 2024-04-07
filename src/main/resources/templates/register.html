@@ -109,11 +109,10 @@
     <input type="password" th:field="*{password}" placeholder="Password" oninput="checkPasswordStrength(this.value)">
     <div id="password-strength"></div>
 
-    <label for="role">Select Role:</label>
-    <select id="role" name="role" th:field="*{role.id}">
-        <option value="1">Admin</option>
-        <option value="2">User</option>
+    <select id="role" name="role" th:field="*{role}">
+        <option th:each="role : ${T(com.project.OnlineLearning.enums.Role).values()}" th:value="${role}" th:text="${role}"></option>
     </select>
+
 
 
     <input type="submit" value="Sign in">
