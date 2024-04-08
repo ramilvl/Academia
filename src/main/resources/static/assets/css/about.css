@@ -251,3 +251,79 @@ p span {
         font-size: 16px;
     }
 }
+
+
+
+#about-intro {
+    background: #5C2482;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#about-intro h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+main h2 {
+    background: #4a148c;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Styling for each section content */
+main section p {
+    background: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0 20px;
+}
+
+/* Styling for features list */
+#features ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#features ul li {
+    background: #e0e0e0;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#benefits ul li {
+    background: #e0e0e0;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#future-implementations ul li {
+    background: #e0e0e0;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+/* Hover effects */
+#about-intro h1:hover,
+main h2:hover,
+main section p:hover,
+#features ul li:hover {
+    background: #333;
+    color: #fff;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+#benefits ul li:hover {
+    background: #333;
+    color: #fff;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+#future-implementations ul li:hover {
+    background: #333;
+    color: #fff;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}

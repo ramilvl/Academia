@@ -14,14 +14,14 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String content; // The actual question text
+    private String content;
 
     private String optionA;
     private String optionB;
     private String optionC;
     private String optionD;
 
-    private String correctAnswer; // The correct option
+    private String correctAnswer;
 
     @ManyToOne
     @JoinColumn(name = "test_id")

@@ -11,8 +11,8 @@
 <body>
 <header>
     <div class="header-logo">
-        <img width="80px" height="80px" src="../assets/img/pic2.svg" alt="">
-        <span class="color-white text-size-36px font-fuggles" id="animated-text">A' Learn</span>
+        <img width="80px" height="80px" th:src="@{/assets/img/pic2.svg}">
+        <span class="color-white text-size-40px font-fuggles" id="animated-text"> <span class="color-red">A</span>cademia</span>
     </div>
     <div class="header-title">
         <a class="color-F6 font-poppins text-size-15px font-400 cursor" th:href="@{/main-page}">Home</a>
@@ -22,33 +22,73 @@
     </div>
 
     <div class="user-profile">
-        <i><p style="margin-top:10px;" class="color-white text-size-18px" th:text="${user != null ? user.firstName : ''}"></p></i>
+        <p style="margin-top:10px;" class="color-white text-size-18px" th:text="${username}"></p>
     </div>
 </header>
 
-<div class="about-content">
-    <h1>Welcome to A' Learn</h1>
-    <p>
-        We are dedicated to providing an innovative online learning and examination system.
-        Our mission is to empower learners with quality education and assessments, making learning
-        accessible and enjoyable for everyone.
-    </p>
-    <p th:if="${user != null}">
-        Hello, <span th:text="${user.firstName}"></span>! A' Learn is designed to offer a seamless learning experience,
-        allowing users to explore courses, track their progress, and stay informed about the latest updates
-        and notifications. Join us on this educational journey and discover new grades with every effort you make!
-    </p>
-    <p th:unless="${user != null}">
-        A' Learn is designed to offer a seamless learning experience, allowing users to explore courses,
-        track their progress, and stay informed about the latest updates and notifications. Join us on this
-        educational journey and discover new grades with every effort you make!
-    </p>
-</div>
+<main>
+    <h1 style="text-align:center;"><b>About Development of Online Learning and Examination System</b></h1>
+    <section id="about-intro">
+        <p>Welcome to our educational platform where we strive to deliver an exceptional learning experience accessible from anywhere.</p>
+    </section>
+
+    <section id="mission">
+        <h2>Our Mission</h2>
+        <p>To empower individuals by providing accessible, high-quality online learning experiences that enable lifelong learning and professional development.</p>
+    </section>
+
+    <section id="vision">
+        <h2>Our Vision</h2>
+        <p>To be a global leader in online education, recognized for our innovative approaches to learning and examination, fostering growth and transformation for our learners and for society.</p>
+    </section>
+
+    <section id="features">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Comprehensive curriculum covering a wide range of subjects.</li>
+            <li>Interactive learning modules with multimedia content.</li>
+            <li>Self-paced courses with assessments to track progress.</li>
+            <li>Secure, scalable online examination system.</li>
+            <li>Community forums for peer support and knowledge exchange.</li>
+        </ul>
+    </section>
+
+    <section id="benefits">
+        <h2>Benefits</h2>
+        <ul>
+            <li>Flexible learning options for students and professionals.</li>
+            <li>Enhanced accessibility for learners worldwide.</li>
+            <li>Real-time feedback and analytics for performance improvement.</li>
+            <li>Preparation for industry-relevant skills and certifications.</li>
+            <li>Reduction in traditional education costs and barriers.</li>
+        </ul>
+    </section>
+
+    <section id="team">
+        <h2>Meet Our Team</h2>
+        <p>A passionate group of educators, developers, and innovators dedicated to revolutionizing the way the world learns.</p>
+        <!-- Team member profiles could go here -->
+    </section>
+
+    <section id="future-implementations">
+        <h2>Future Implementations</h2>
+        <ul>
+            <li>Expanding course offerings to include more diverse subjects and specializations.</li>
+            <li>Integrating advanced technologies like AI to personalize the learning experience.</li>
+            <li>Developing mobile applications for easier access to learning materials on the go.</li>
+            <li>Establishing partnerships with industry leaders to align courses with job market demands.</li>
+        </ul>
+    </section>
+</main>
 
 <footer>
-    <!-- Include your footer content if needed -->
+    <div class="footer-content">
+        <p>© 2024 Academia. All rights reserved.</p>
+        <p>Contact us at info@academialearning.com</p>
+        <p>Follow us on [Social Media Links]</p>
+    </div>
 </footer>
 
-<script src="http://localhost:35729/livereload.js"></script>
+<script th:src="@{/assets/js/script.js}"></script>
 </body>
 </html>

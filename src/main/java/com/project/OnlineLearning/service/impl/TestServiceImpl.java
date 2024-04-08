@@ -21,12 +21,8 @@ public class TestServiceImpl {
     }
 
     public Test findTestByCourseId(Long courseId) {
-        // Implement the logic to retrieve a test based on the course ID.
-        // This could involve querying your repository based on the courseId,
-        // which you might need to add to your Test entity as a foreign key if it's not there already.
-        // Here's a hypothetical example:
         return testRepository.findByCourseId(courseId)
-                .orElse(null); // Use Optional to handle the case where the test isn't found
+                .orElse(null);
     }
 
 }

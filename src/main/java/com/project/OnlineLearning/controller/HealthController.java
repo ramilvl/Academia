@@ -12,7 +12,7 @@ public class HealthController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping(value = "/readiness") // Add a forward slash at the beginning
+    @GetMapping(value = "/readiness")
     public ResponseEntity readiness() {
         return ResponseEntity.ok().build();
     }

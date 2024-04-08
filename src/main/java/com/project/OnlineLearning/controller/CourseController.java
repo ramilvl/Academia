@@ -48,7 +48,7 @@ public class CourseController {
             return "courseDetails";
         } else {
             model.addAttribute("error", "The requested course was not found.");
-            return "errorPage"; // Assuming you have an 'errorPage.html' template
+            return "errorPage";
         }
     }
 
@@ -61,7 +61,7 @@ public class CourseController {
             return "test";
         } else {
             model.addAttribute("error", "Test not found for the given course.");
-            return "courseDetails";  // Make sure this template handles the error attribute.
+            return "courseDetails";
         }
     }
 

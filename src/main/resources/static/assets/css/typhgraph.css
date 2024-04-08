@@ -2,6 +2,8 @@
     color: var(--color-primary);
 }
 
+
+
 .text-size-15px{
     font-size: 15px
 }
@@ -29,6 +31,12 @@
 .text-size-36px{
     font-size: 36px
 }
+
+.text-size-40px{
+    font-size: 40px
+}
+
+
 
 .font-300{
     font-weight: 300;
@@ -64,6 +72,10 @@
 
 .color-F6{
     color: #F6F6F6;
+}
+
+.color-red{
+color: red;
 }
 
 .mb-15px{

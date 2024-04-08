@@ -21,7 +21,7 @@ public class Test {
     private List<Question> questions;
 
     @ManyToOne
-    @JoinColumn(name = "course_id") // This column is a foreign key referencing 'course' table
+    @JoinColumn(name = "course_id")
     private Course course;
 
 }
