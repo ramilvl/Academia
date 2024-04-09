@@ -81,6 +81,6 @@
         @PostMapping("/save")
         public String registerToWebsite(@ModelAttribute User user) {
             userService.save(user);
-            return "redirect:/";
+            return "register";
         }
     }

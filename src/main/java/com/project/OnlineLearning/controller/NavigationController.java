@@ -28,9 +28,9 @@ public class NavigationController {
 
 
 
-    @GetMapping("/main")
+    @GetMapping(value = "/main")
     public String mainPage() {
-        return "main-page"; 
+        return "index";
     }
 
     @GetMapping(value = "/admin-dash")

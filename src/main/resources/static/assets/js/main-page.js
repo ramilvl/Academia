@@ -1,4 +1,9 @@
-const coursesList = document.querySelector('.courses-list');    
+const coursesList = document.querySelector('.courses-list');
+
+function scrollToMainTwo() {
+    const element = document.getElementById('second-main');
+    element.scrollIntoView({ behavior: 'smooth' });
+}
 
 function scrollToSection(sectionId) {
     var section = document.getElementById(sectionId);

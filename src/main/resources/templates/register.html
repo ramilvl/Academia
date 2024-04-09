@@ -96,9 +96,20 @@
             color: #333;
         }
 
+
+
         .dark-mode {
             background-color: #333;
             color: #fff;
+        }
+        a {
+            text-decoration: none;
+            color: #3498db;
+            margin-top: 10px;
+        }
+
+        a:hover {
+            color: #2980b9;
         }
     </style>
 </head>
@@ -116,6 +127,7 @@
 
 
     <input type="submit" value="Sign in">
+    <a th:href="@{/navigation/admin-dash}">Go Back</a>
 
     <div id="toggle-buttons">
         <button type="button" class="toggle-button light-mode" onclick="setLightMode()">Light</button>
@@ -129,11 +141,11 @@
             var currentTime = new Date().getHours();
 
             if (currentTime < 12) {
-                greeting.innerText = 'Good morning! \n Instructors, add your students to the course.';
+                greeting.innerText = 'Good morning! \n Add student to the course.';
             } else if (currentTime < 18) {
-                greeting.innerText = 'Good afternoon! \n Instructors, add your students to the course.';
+                greeting.innerText = 'Good afternoon! \n Add student to the course.';
             } else {
-                greeting.innerText = 'Good evening! \n Instructors, add your students to the course.';
+                greeting.innerText = 'Good evening! \n Add student to the course.';
             }
         });
 
