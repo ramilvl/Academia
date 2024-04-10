@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/main-page.css}">
+</head>
+<body>
+<header>
+    <div class="header-logo">
+        <img width="80px" height="80px" src="../assets/img/pic2.svg" alt="">
+        <span class="color-white text-size-40px font-fuggles" id="animated-text"> <span class="color-red">A</span>cademia</span>
+    </div>
+    <div class="header-title">
+        <a class="color-F6 font-poppins text-size-15px font-400 cursor" th:href="@{/main-page}" onclick="scrollToSection('home')">Home</a>
+        <a class="color-F6 font-poppins text-size-15px font-400 cursor" th:href="@{/navigation/about}">About</a>
+        <a class="color-F6 font-poppins text-size-15px font-400 cursor" th:href="@{/navigation/myCourse}">My Courses</a>
+        <a class="color-F6 font-poppins text-size-15px font-400 cursor" onclick="scrollToSection('contact')">Contact</a>
+    </div>
+
+    <div class="user-profile">
+        <p style="margin-top:10px;" class="color-white text-size-18px" th:text="${user != null ? user.firstName : ''}"></p>
+    </div>
+</header>
+
+
+    <div class="main-page-box">
+        <div th:if="${courses.isEmpty()}" class="no-courses-container">
+            <img src="../assets/img/education.png" alt="No Courses" class="no-courses-image">
+            <p class="no-courses-message">No courses are currently enrolled.</p>
+        </div>
+
+        <div th:each="course : ${courses}" class="box">
+            <div class="sm-box">
+                <div class="sm-box-display">
+                    <span th:text="${course.courseName}" class="font-poppins font-600 text-size-20px"></span>
+                    <span class="font-poppins text-size-15px">Lectures:</span>
+                </div>
+                <div class="sm-box-display-2">
+                    <a class="italic cursor text-size-15px color-orange font-poppins" th:href="@{'/courses/' + ${course.id}}">Explore all</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

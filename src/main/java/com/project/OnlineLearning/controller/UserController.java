@@ -1,7 +1,9 @@
     package com.project.OnlineLearning.controller;
     
+    import com.project.OnlineLearning.entity.Course;
     import com.project.OnlineLearning.entity.User;
     import com.project.OnlineLearning.service.CourseService;
+    import com.project.OnlineLearning.service.impl.CourseServiceImpl;
     import com.project.OnlineLearning.service.impl.UserServiceImpl;
     import jakarta.servlet.http.HttpServletRequest;
     import lombok.AllArgsConstructor;
@@ -12,6 +14,7 @@
     import org.springframework.web.bind.annotation.*;
     
     import java.security.Principal;
+    import java.util.List;
     import java.util.Optional;
     
     @Controller
@@ -20,30 +23,33 @@
     public class UserController {
         @Autowired
         private UserServiceImpl userService;
+        @Autowired
+        private CourseServiceImpl courseService;
     
         @GetMapping("/")
         public String loginPage() {
             return "index";
         }
-        
+
         @GetMapping("/main-page")
         public String mainPage(Model model, HttpServletRequest request) {
             String username = (String) request.getSession().getAttribute("username");
-    
+
             if (username != null) {
                 Optional<User> userOptional = Optional.ofNullable(userService.getUserByUsername(username));
-    
+
                 if (userOptional.isPresent()) {
                     User user = userOptional.get();
-                    model.addAttribute("courses", user.getCourses());
                     model.addAttribute("user", user);
-                    return "main-page";
                 }
             }
-    
-            model.addAttribute("error", "No user found with the provided username.");
-            return "index";
+
+            List<Course> courses = courseService.getAllCourses();
+            model.addAttribute("courses", courses);
+
+            return "main-page";
         }
+
 
 
         @PostMapping("/login")

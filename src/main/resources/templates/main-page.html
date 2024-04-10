@@ -17,7 +17,7 @@
     <div class="header-title">
         <a class="color-F6 font-poppins text-size-15px font-400 cursor" onclick="scrollToSection('home')">Home</a>
         <a class="color-F6 font-poppins text-size-15px font-400 cursor" th:href="@{/navigation/about}">About</a>
-        <a class="color-F6 font-poppins text-size-15px font-400 cursor" id="myCoursesLink" onclick="scrollToMainTwo()">My Courses</a>
+        <a class="color-F6 font-poppins text-size-15px font-400 cursor" th:href="@{/navigation/myCourse}">My Courses</a>
         <a class="color-F6 font-poppins text-size-15px font-400 cursor" onclick="scrollToSection('contact')">Contact</a>
     </div>
 
@@ -69,37 +69,30 @@
 
 <main class="main-2" id="second-main">
     <div class="courses-header">
-        <span class="color-orange text-size-36px font-poppins font-400">Courses</span>
+        <h2 class="color-orange text-size-36px font-poppins font-400">Courses</h2>
         <div class="course-display-2">
             <i class="cursor icon icon-left small-quad"></i>
-            <i class="cursor icon-27 icon-right mr-50px"></i>
+            <i class="cursor icon icon-right mr-50px"></i>
         </div>
     </div>
 
-    <div class="main-page-box">
-        <div th:if="${courses.isEmpty()}" class="no-courses-container">
-            <img src="../assets/img/education.png" alt="No Courses" class="no-courses-image">
-            <p class="no-courses-message">No courses are currently enrolled.</p>
-        </div>
-
-        <div th:each="course : ${courses}" class="box">
-            <div class="sm-box">
-                <div class="sm-box-display">
-                    <span th:text="${course.courseName}" class="font-poppins font-600 text-size-20px"></span>
-                    <span class="font-poppins text-size-15px">Lectures:</span>
-                </div>
-                <div class="sm-box-display-2">
-                    <a class="italic cursor text-size-15px color-orange font-poppins" th:href="@{'/courses/' + ${course.id}}">Explore all</a>
-                </div>
-            </div>
+    <div class="courses-container">
+        <div class="courses-wrapper">
+            <ul class="courses-list">
+                <li th:each="course : ${courses}" class="course-slide">
+                    <div class="course-box">
+                        <h3 th:text="${course.courseName}">Course Name</h3>
+                        <p>Short description or other info could go here.</p>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 
 
-
-    
-    
 </main>
+
+
 
 <footer>
     <div class="f-1">
