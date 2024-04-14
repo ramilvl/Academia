@@ -2,17 +2,102 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Take Test</title>
-    <!-- Include necessary CSS and JS here -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 40px; /* Increased vertical spacing between questions */
+        }
+
+        .question-content {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px; /* Increased spacing below question content */
+            color: #333;
+        }
+
+        .options {
+            margin-left: 20px;
+        }
+
+        .option {
+            display: inline-block;
+            padding: 8px 16px;
+            margin-right: 10px;
+            margin-bottom: 10px; /* Increased vertical spacing between options */
+            border-radius: 20px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background-color: #f0f0f0;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        input[type="radio"] + .option:before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #007bff;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        input[type="radio"]:checked + .option:before {
+            background-color: #007bff;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 20px auto 0; /* Centering the button and adding space above it */
+            display: block; /* Ensure the button takes up full width */
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 <form th:action="@{/tests/{testId}(testId=${test.id})}" method="post">
-    <div th:each="question : ${test.questions}">
-        <p th:text="${question.content}"></p>
-        <!-- Display question options here -->
-        <input type="radio" th:name="|question${question.id}|" th:value="A" /> <label th:text="${question.optionA}"></label><br/>
-        <input type="radio" th:name="|question${question.id}|" th:value="B" /> <label th:text="${question.optionB}"></label><br/>
-        <input type="radio" th:name="|question${question.id}|" th:value="C" /> <label th:text="${question.optionC}"></label><br/>
-        <input type="radio" th:name="|question${question.id}|" th:value="D" /> <label th:text="${question.optionD}"></label><br/>
+    <div th:each="question, iterStat : ${test.questions}" class="question">
+        <p class="question-content" th:text="${question.content}"></p>
+        <div class="options">
+            <input type="radio" th:name="'question' + ${question.id}" th:id="'option' + ${iterStat.index} + '_A'" th:value="A" />
+            <label class="option" th:for="'option' + ${iterStat.index} + '_A'" th:text="${question.optionA}"></label><br/>
+            <input type="radio" th:name="'question' + ${question.id}" th:id="'option' + ${iterStat.index} + '_B'" th:value="B" />
+            <label class="option" th:for="'option' + ${iterStat.index} + '_B'" th:text="${question.optionB}"></label><br/>
+            <input type="radio" th:name="'question' + ${question.id}" th:id="'option' + ${iterStat.index} + '_C'" th:value="C" />
+            <label class="option" th:for="'option' + ${iterStat.index} + '_C'" th:text="${question.optionC}"></label><br/>
+            <input type="radio" th:name="'question' + ${question.id}" th:id="'option' + ${iterStat.index} + '_D'" th:value="D" />
+            <label class="option" th:for="'option' + ${iterStat.index} + '_D'" th:text="${question.optionD}"></label><br/>
+        </div>
     </div>
     <button type="submit">Submit Test</button>
 </form>

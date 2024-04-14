@@ -2,14 +2,41 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Test Result</title>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Change background color */
+            font-family: Arial, sans-serif; /* Change font */
+            color: #333; /* Change text color */
+            padding: 20px; /* Add padding for content */
+            margin: 0; /* Remove default margin */
+        }
+        h1 {
+            text-align: center; /* Center align heading */
+            color: #007bff; /* Change heading color */
+        }
+        .question {
+            background-color: #fff; /* White background for questions */
+            padding: 10px; /* Add padding */
+            margin-bottom: 20px; /* Add margin between questions */
+            border-radius: 5px; /* Add rounded corners */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add shadow */
+        }
+        .explanation {
+            background-color: #f9f9f9; /* Light gray background for explanation */
+            padding: 10px; /* Add padding */
+            margin-top: 10px; /* Add margin at the top */
+            border-radius: 5px; /* Add rounded corners */
+            box-shadow: 0 0 5px rgba(0,0,0,0.1); /* Add shadow */
+        }
+    </style>
 </head>
 <body>
-<h1>Correct Answer: <span th:text="${score}"></span></h1>
+<h1>Score: <span th:text="${correctCount + '/' + totalCount}"></span></h1>
 
-<div th:each="question : ${incorrectQuestions}">
+<div th:each="question : ${incorrectQuestions}" class="question">
     <p th:text="${question.content}"></p>
-    <div th:if="${explanations[question.id]}">
-        <p>Explanation:</p>
+    <div th:if="${explanations[question.id]}" class="explanation">
+        <p><strong>Explanation:</strong></p>
         <p th:text="${explanations[question.id]}"></p>
     </div>
 </div>

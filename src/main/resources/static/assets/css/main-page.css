@@ -260,7 +260,7 @@ footer{
 .courses-container {
     overflow: hidden;
     width: 100%; /* Container must be 100% to contain all slides */
-    margin-top:120px
+    margin-top:120px;
 }
 
 .courses-wrapper {

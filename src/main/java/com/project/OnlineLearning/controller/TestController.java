@@ -46,9 +46,6 @@ public class TestController {
         Test test = testService.findTestById(testId);
         List<Question> questions = questionService.getQuestionsForTest(testId);
 
-        int score = questionService.calculateScore(testId, allParams);
-        model.addAttribute("score", score);
-
         Map<Long, String> explanations = new HashMap<>();
         List<Question> incorrectQuestions = new ArrayList<>();
 
@@ -61,14 +58,20 @@ public class TestController {
             }
         }
 
-        explanations.forEach((key, value) -> System.out.println("Question ID: " + key + " - Explanation: " + value));
+        int totalCount = questions.size(); // Total number of questions
+        int correctCount = totalCount - incorrectQuestions.size(); // Calculate correct count
+        int score = totalCount - incorrectQuestions.size(); // Score is the same as correct count
 
-
+        model.addAttribute("totalCount", totalCount);
+        model.addAttribute("correctCount", correctCount);
+        model.addAttribute("score", score);
         model.addAttribute("incorrectQuestions", incorrectQuestions);
         model.addAttribute("explanations", explanations);
 
         return "result";
     }
+
+
 
 
 
