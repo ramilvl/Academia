@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Questions</title>
+    <!-- Add your CSS links here -->
+</head>
+<body>
+<header>
+    <!-- Include your header here -->
+</header>
+
+<div class="container">
+    <h1>Add a New Question</h1>
+    <form th:action="@{/instructor/courses/{id}/addQuestion(id=${courseId})}" th:object="${question}" method="POST">
+        <!-- Include fields for question content, options, and the correct answer -->
+        <div class="form-group">
+            <label for="content">Question:</label>
+            <input type="text" id="content" th:field="*{content}" required>
+        </div>
+        <div class="form-group">
+            <label for="optionA">Option A:</label>
+            <input type="text" id="optionA" th:field="*{optionA}" required>
+
+            <label for="optionB">Option B:</label>
+            <input type="text" id="optionB" th:field="*{optionB}" required>
+
+            <label for="optionC">Option C:</label>
+            <input type="text" id="optionC" th:field="*{optionC}" required>
+
+            <label for="optionD">Option D:</label>
+            <input type="text" id="optionD" th:field="*{optionD}" required>
+        </div>
+        <!-- Include input fields for other options (B, C, D) -->
+        <div class="form-group">
+            <label for="correctAnswer">Correct Answer:</label>
+            <select id="correctAnswer" th:field="*{correctAnswer}" required>
+                <option value="A">Option A</option>
+                <option value="B">Option B</option>
+                <option value="C">Option C</option>
+                <option value="D">Option D</option>
+            </select>
+        </div>
+        <!-- Include any other necessary fields -->
+        <button type="submit" class="submit-button">Submit Question</button>
+    </form>
+</div>
+
+</body>
+</html>

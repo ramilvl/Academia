@@ -44,7 +44,7 @@ public class NavigationController {
     }
 
     @GetMapping(value = "/myCourse")
-    public String goToMyCourse(Model model, HttpServletRequest request){
+    public String goToMyCourse(Model model, HttpServletRequest request) {
         String username = (String) request.getSession().getAttribute("username");
         if (username != null) {
             Optional<User> userOptional = Optional.ofNullable(userService.getUserByUsername(username));
@@ -53,13 +53,21 @@ public class NavigationController {
                 User user = userOptional.get();
                 model.addAttribute("courses", user.getCourses());
                 model.addAttribute("user", user);
+
+                // Determine the user's role
+                String userRole = "STUDENT"; // Default role
+                if (userService.isAdmin(user)) {
+                    userRole = "ADMIN";
+                } else if (userService.isInstructor(user)) {
+                    userRole = "INSTRUCTOR";
+                }
+                model.addAttribute("userRole", userRole); // Add user role to model
+
                 return "my-course";
             }
         }
         model.addAttribute("error", "No user found with the provided username.");
         return "index";
     }
-
-
 
 }

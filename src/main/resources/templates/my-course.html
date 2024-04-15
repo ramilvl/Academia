@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>My Courses</title>
     <link rel="stylesheet" th:href="@{/assets/css/style.css}">
     <link rel="stylesheet" th:href="@{/assets/css/main-page.css}">
 </head>
@@ -24,24 +24,26 @@
     </div>
 </header>
 
+<div class="main-page-box">
+    <div th:if="${courses.isEmpty()}" class="no-courses-container">
+        <img src="../assets/img/education.png" alt="No Courses" class="no-courses-image">
+        <p class="no-courses-message">No courses are currently enrolled.</p>
+    </div>
 
-    <div class="main-page-box">
-        <div th:if="${courses.isEmpty()}" class="no-courses-container">
-            <img src="../assets/img/education.png" alt="No Courses" class="no-courses-image">
-            <p class="no-courses-message">No courses are currently enrolled.</p>
-        </div>
+    <div th:each="course : ${courses}" class="box">
+        <div class="sm-box">
+            <div class="sm-box-display">
+                <span th:text="${course.courseName}" class="font-poppins font-600 text-size-20px"></span>
+                <span class="font-poppins text-size-15px">Lectures:</span>
+            </div>
+            <div class="sm-box-display-2">
+                <a th:if="${userRole == 'INSTRUCTOR'}" th:href="@{/instructor/courses/{id}/addQuestion(id=${course.id})}">Add Questions</a>
 
-        <div th:each="course : ${courses}" class="box">
-            <div class="sm-box">
-                <div class="sm-box-display">
-                    <span th:text="${course.courseName}" class="font-poppins font-600 text-size-20px"></span>
-                    <span class="font-poppins text-size-15px">Lectures:</span>
-                </div>
-                <div class="sm-box-display-2">
-                    <a class="italic cursor text-size-15px color-orange font-poppins" th:href="@{'/courses/' + ${course.id}}">Explore all</a>
-                </div>
+                <a th:if="${userRole == 'STUDENT'}" class="italic cursor text-size-15px color-orange font-poppins" th:href="@{'/courses/' + ${course.id}}">Explore all</a>
             </div>
         </div>
     </div>
+</div>
+
 </body>
 </html>
