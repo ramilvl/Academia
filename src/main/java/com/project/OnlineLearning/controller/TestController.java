@@ -58,9 +58,9 @@ public class TestController {
             }
         }
 
-        int totalCount = questions.size(); // Total number of questions
-        int correctCount = totalCount - incorrectQuestions.size(); // Calculate correct count
-        int score = totalCount - incorrectQuestions.size(); // Score is the same as correct count
+        int totalCount = questions.size();
+        int correctCount = totalCount - incorrectQuestions.size();
+        int score = totalCount - incorrectQuestions.size();
 
         model.addAttribute("totalCount", totalCount);
         model.addAttribute("correctCount", correctCount);

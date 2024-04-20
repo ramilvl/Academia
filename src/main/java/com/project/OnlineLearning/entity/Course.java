@@ -17,7 +17,8 @@ public class Course {
     private Long id;
 
     private String courseName;
-    
+
+    private String description;
     
     @ManyToMany(mappedBy = "courses")
     private Set<User> students;

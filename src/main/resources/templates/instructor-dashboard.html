@@ -89,13 +89,14 @@
                         <span class="font-poppins text-size-15px">Lectures:</span>
                     </div>
                     <div class="sm-box-display-2">
-                        <a class="italic cursor text-size-15px color-orange font-poppins" th:href="@{'/courses/' + ${course.id}}">Explore all</a>
+                        <!-- Update the href attribute to point to the lectures page -->
+                        <a class="italic cursor text-size-15px color-orange font-poppins"
+                           th:href="@{'/courses/' + ${course.id} + '/lectures'}">Explore all</a>
                     </div>
                 </div>
             </div>
 
         </div>
-    </div>
 
 
 </main>

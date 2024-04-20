@@ -20,6 +20,7 @@ public class CourseController {
     private CourseService courseService;
     private final TestServiceImpl testService;
 
+
     @Autowired
     public CourseController(TestServiceImpl testService) {
         this.testService = testService;
@@ -33,8 +34,8 @@ public class CourseController {
     }
 
     @PostMapping
-    public String createCourse(@RequestParam String courseName) {
-        courseService.createCourse(courseName);
+    public String createCourse(@RequestParam String courseName, @RequestParam String description) {
+        courseService.createCourse(courseName, description);
         return "redirect:/courses";
     }
 
@@ -51,6 +52,7 @@ public class CourseController {
             return "errorPage";
         }
     }
+
 
 
     @GetMapping("/test/start/{courseId}")

@@ -82,7 +82,7 @@
                 <li th:each="course : ${courses}" class="course-slide">
                     <div class="course-box">
                         <h3 th:text="${course.courseName}">Course Name</h3>
-                        <p>Short description or other info could go here.</p>
+                        <p th:text="${course.description}"></p>
                     </div>
                 </li>
             </ul>

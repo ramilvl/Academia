@@ -3,17 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Questions</title>
-    <!-- Add your CSS links here -->
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
 <header>
-    <!-- Include your header here -->
 </header>
 
 <div class="container">
     <h1>Add a New Question</h1>
     <form th:action="@{/instructor/courses/{id}/addQuestion(id=${courseId})}" th:object="${question}" method="POST">
-        <!-- Include fields for question content, options, and the correct answer -->
         <div class="form-group">
             <label for="content">Question:</label>
             <input type="text" id="content" th:field="*{content}" required>
@@ -31,7 +85,6 @@
             <label for="optionD">Option D:</label>
             <input type="text" id="optionD" th:field="*{optionD}" required>
         </div>
-        <!-- Include input fields for other options (B, C, D) -->
         <div class="form-group">
             <label for="correctAnswer">Correct Answer:</label>
             <select id="correctAnswer" th:field="*{correctAnswer}" required>
@@ -41,7 +94,6 @@
                 <option value="D">Option D</option>
             </select>
         </div>
-        <!-- Include any other necessary fields -->
         <button type="submit" class="submit-button">Submit Question</button>
     </form>
 </div>
