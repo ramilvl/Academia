@@ -89,6 +89,10 @@ color: red;
     margin-left: 270px;
 }
 
+.mr-10px{
+    margin-right: 10px;
+}
+
 .mr-50px{
     margin-right: 50px;
 }
@@ -167,8 +171,8 @@ color: red;
 }
 
 .small-quad{
-    width: 27px;
-    height: 27px;
+    width: 29px;
+    height: 29px;
     border: 2px solid #F95B0E;
     border-radius: 4px;
 }

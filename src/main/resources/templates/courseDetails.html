@@ -3,15 +3,88 @@
 <head>
     <title>Course Details</title>
     <!-- Other head elements -->
+
+    <style>
+        /* Style for error message */
+        .error-message {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* Style for the "Start Testing" link */
+        .start-test-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .start-test-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style for the test container */
+        .test-container {
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Style for the test heading */
+        .test-heading {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Style for test rules */
+        .test-rules {
+            margin-bottom: 20px;
+        }
+
+        /* Style for test rule items */
+        .test-rule-item {
+            margin-bottom: 5px;
+        }
+
+        /* Style for the start test button within the test container */
+        .start-test-button-inside-container {
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* Style for additional note */
+        .additional-note {
+            margin-top: 20px;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
 <!-- Course details -->
 
-<!-- Start test button --><!-- Error message section -->
+<!-- Error message section -->
 <div th:if="${error}" th:text="${error}" class="error-message"></div>
 <div th:if="${course}">
-    <!-- Display course details -->
-    <a th:href="@{/courses/test/start/{courseId}(courseId=${course.id})}">Start Testing</a>
+
+
+    <!-- Test section -->
+    <div class="test-container">
+        <h2 class="test-heading">Test Rules</h2>
+        <div class="test-rules">
+            <div class="test-rule-item">1. You have 60 minutes to complete the test.</div>
+            <div class="test-rule-item">2. Answer all questions.</div>
+            <div class="test-rule-item">3. Once you start the test, you cannot pause it.</div>
+            <!-- Add more rules as needed -->
+        </div>
+        <a th:href="@{/courses/test/start/{courseId}(courseId=${course.id})}" class="start-test-button start-test-button-inside-container">Start Test</a>
+
+        <!-- Additional note -->
+        <div class="additional-note">For each mistake, there will be an explanation powered by AI to help students learn without using extra time.</div>
+    </div>
 </div>
 
 </body>

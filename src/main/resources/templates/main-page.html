@@ -71,7 +71,7 @@
     <div class="courses-header">
         <h2 class="color-orange text-size-36px font-poppins font-400">Courses</h2>
         <div class="course-display-2">
-            <i class="cursor icon icon-left small-quad"></i>
+            <i class="cursor icon icon-left small-quad mr-10px"></i>
             <i class="cursor icon icon-right mr-50px"></i>
         </div>
     </div>
@@ -80,10 +80,8 @@
         <div class="courses-wrapper">
             <ul class="courses-list">
                 <li th:each="course : ${courses}" class="course-slide">
-                    <div class="course-box">
-                        <h3 th:text="${course.courseName}">Course Name</h3>
-                        <p th:text="${course.description}"></p>
-                    </div>
+                        <h3 class="h3cls font-poppins text-size-25px font-600" th:text="${course.courseName}">Course Name</h3>
+                        <p class="font-montserrat text-size-18px " th:text="${course.description}"></p>
                 </li>
             </ul>
         </div>

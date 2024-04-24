@@ -146,10 +146,10 @@ header{
 
 .main-page-box {
     width: 100%;
-    flex-grow: 1; /* Allows the box to grow and fill available space, centering the no-courses container */
+    flex-grow: 1;
     display: flex;
-    align-items: center; /* Center children vertically */
-    justify-content: center; /* Center children horizontally */
+    align-items: center;
+    justify-content: center;
 }
 
 .no-courses-container {
@@ -174,11 +174,11 @@ header{
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin: 0; /* Remove auto margin */
-    display: inline-flex; /* Align text properly next to image */
-    align-items: center; /* Center text in line with the image */
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    height: 100px; /* Match height with the image if necessary */
+    height: 100px;
 }
 
 
@@ -259,23 +259,23 @@ footer{
 
 .courses-container {
     overflow: hidden;
-    width: 100%; /* Container must be 100% to contain all slides */
+    width: 100%;
     margin-top:120px;
 }
 
 .courses-wrapper {
     display: flex;
-    justify-content: center; /* This will center the course cards */
-    transition: transform 0.3s ease-out; /* Smooth transition for sliding effect */
+    justify-content: center;
+    transition: transform 0.3s ease-out;
 }
 
 
 .course-slide {
-    flex: 0 0 20%; /* Adjust the percentage based on how many cards you want to show */
-    max-width: 20%; /* This should match the flex-basis if you want strict widths */
+    flex: 0 0 20%;
+    max-width: 40%;
     box-sizing: border-box;
-    padding: 0 10px; /* Adds some padding between cards */
-    transition: transform 0.3s ease; /* Smooth transition for scaling on hover */
+    padding: 0 10px;
+    transition: transform 0.3s ease;
 }
 
 
@@ -306,24 +306,28 @@ footer{
 .course-display-2 i {
     user-select: none;
     cursor: pointer;
-    font-size: 24px; /* Adjust size as needed */
-    color: #333; /* Arrow icon color */
+    font-size: 24px;
+    color: #333;
 }
 
 .course-box {
     background-color: #fff;
-    border-radius: 8px; /* Rounds the corners of the course cards */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin: 10px 0; /* Adds some space above and below each card */
-    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for shadow and transform */
+    margin: 10px 0;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .course-box:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* A larger shadow on hover for a "lifting" effect */
-    transform: translateY(-5px); /* Moves the card up slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
 }
 
 .course-box:first-child {
     display: block;
+}
+
+.h3cls{
+margin-bottom: 20px;
 }
